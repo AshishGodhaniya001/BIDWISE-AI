@@ -19,14 +19,14 @@ jobs:
 
       - name: Docker meta (backend)
         id: meta-backend
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}/backend
           tags: type=semver,pattern={{version}}
 
       - name: Docker meta (frontend)
         id: meta-frontend
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}/frontend
           tags: type=semver,pattern={{version}}
