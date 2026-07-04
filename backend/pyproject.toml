@@ -1,0 +1,17 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 160
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = [
+  "E402",   # module-level import not at top — conftest needs env vars set first
+  "E501",   # line too long
+  "E701",   # multiple statements on one line (colon) — intentional compact guards
+  "E702",   # multiple statements on one line (semicolon) — intentional compact patterns
+  "E731",   # do not assign lambda — intentional utility
+  "F541",   # f-string without placeholders — false positive for multiline f-strings
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
