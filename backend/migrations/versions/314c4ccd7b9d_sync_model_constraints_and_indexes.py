@@ -77,7 +77,7 @@ def upgrade() -> None:
     fks = {fk["constrained_columns"][0] for fk in inspector.get_foreign_keys("users") if fk["constrained_columns"]}
     if "active_organization_id" not in fks:
         with op.batch_alter_table("users") as batch_op:
-            batch_op.create_foreign_key(None, "organizations", ["active_organization_id"], ["id"], ondelete="SET NULL")
+            batch_op.create_foreign_key("fk_users_active_organization_id", "organizations", ["active_organization_id"], ["id"], ondelete="SET NULL")
 
 
 def downgrade() -> None:
