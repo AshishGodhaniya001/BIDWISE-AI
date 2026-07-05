@@ -17,7 +17,8 @@ os.environ.update(
         "GEMINI_API_KEY": "",
     }
 )
-
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from database import Base, SyncSessionLocal, sync_engine
 from main import app
 

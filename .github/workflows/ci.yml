@@ -41,7 +41,10 @@ jobs:
       - name: Verify migrations
         run: |
           alembic upgrade head
+
       - name: Run tests
+        env:
+          PYTHONPATH: .
         run: pytest -q --tb=short
 
   frontend:
